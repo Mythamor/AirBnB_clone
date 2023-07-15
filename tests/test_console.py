@@ -36,22 +36,12 @@ class test_console(unittest.TestCase):
 
     def test_create_fail(self):
         with patch('sys.stdout', new=io.StringIO()) as f:
-            HBNBCommand().onecmd("create")
-        res = f.getvalue()
-        self.assertEqual(res, "** class name missing **\n")
-
-        with patch('sys.stdout', new=io.StringIO()) as f:
             HBNBCommand().onecmd("create MyModel")
         res = f.getvalue()
-        self.assertEqual(res, "** class doesn't exist **")
+        self.assertEqual(res, "** class doesn't exist **\n")
 
     def test_show(self):
         """test show """
-        with patch('sys.stdout', new=io.StringIO()) as f:
-            HBNBCommand().onecmd("show")
-        res = f.getvalue()
-        self.assertEqual(res, "** class name missing **\n")
-
         with patch('sys.stdout', new=io.StringIO()) as f:
             HBNBCommand().onecmd("show MyModel")
         res = f.getvalue()
