@@ -19,3 +19,7 @@ class TestPlace(TestBaseModel):
         super().__init__(*args, **kwargs)
         self.test_class = Place
         self.test_name = 'Place'
+
+
+if __name__ == "__main__":
+    unittest.main()

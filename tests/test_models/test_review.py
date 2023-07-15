@@ -17,3 +17,7 @@ class TestReview(TestBaseModel):
         super().__init__(*args, **kwargs)
         self.test_class = Review
         self.test_name = 'Review'
+
+
+if __name__ == "__main__":
+    unittest.main()

@@ -90,3 +90,7 @@ class TestBaseModel(unittest.TestCase):
     def test_from_dict(self):
         """ Tests calling from dictionary """
         pass
+
+
+if __name__ == "__main__":
+    unittest.main()

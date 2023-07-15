@@ -21,3 +21,7 @@ class TestUser(TestBaseModel):
         super().__init__(*args, **kwargs)
         self.test_class = User
         self.test_name = "User"
+
+
+if __name__ == "__main__":
+    unittest.main()

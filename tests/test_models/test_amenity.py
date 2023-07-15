@@ -21,3 +21,7 @@ class TestAmenity(TestBaseModel):
         super().__init__(*args, **kwargs)
         self.test_class = Amenity
         self.test_name = "Amenity"
+
+
+if __name__ == "__main__":
+    unittest.main()

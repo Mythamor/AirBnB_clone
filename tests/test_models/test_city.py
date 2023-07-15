@@ -17,3 +17,7 @@ class TestCity(TestBaseModel):
         super().__init__(*args, **kwargs)
         self.test_class = City
         self.test_name = 'City'
+
+
+if __name__ == "__main__":
+    unittest.main()

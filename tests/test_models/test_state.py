@@ -21,3 +21,7 @@ class TestState(TestBaseModel):
         super().__init__(*args, **kwargs)
         self.test_class = State
         self.test_name = 'State'
+
+
+if __name__ == "__main__":
+    unittest.main()
