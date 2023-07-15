@@ -9,7 +9,7 @@ from console import HBNBCommand
 import models.engine.file_storage
 
 
-class test_cosnole(unitest.TestCase):
+class test_console(unittest.TestCase):
     """ Tests console """
 
     def test_create_BaseModel(self):
