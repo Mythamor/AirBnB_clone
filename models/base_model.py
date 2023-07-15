@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-from datetime import datetime
+from datetime import datetime as dt
 from uuid import uuid4
 import models
 
@@ -24,19 +24,15 @@ class BaseModel():
         """
         Initialize attributes: uuid4, time created/updated
         """
-        if kwargs:
-            for key, value in kwargs.items():
-                if key in ['created_at', 'updated_at']:
-                    value = datetime.strptime(value, '%Y-%m-%dT%H:%M:%S.%f')
-                elif "__class__" == key:
-                    pass
-                else:
-                    setattr(self, key, value)
-
+        if kwargs and kwargs != []:
+            value = kwargs["created_at"]
+            self.id = kwargs["id"]
+            self.created_at = dt.strptime(value, '%Y-%m-%dT%H:%M:%S.%f')
+            self.updated_at = self.created_at
         else:
             self.id = str(uuid4())
-            self.created_at = datetime.now()
-            self.updated_at = datetime.now()
+            self.created_at = dt.now()
+            self.updated_at = dt.now()
             models.storage.new(self)
 
     def __str__(self):
@@ -46,7 +42,7 @@ class BaseModel():
         """
         Update istance with updated time $ save to serialized file
         """
-        self.updated_at = datetime.now()
+        self.updated_at = dt.now()
         models.storage.save()
 
     def to_dict(self):
@@ -56,7 +52,7 @@ class BaseModel():
         obj_dict = {}
         obj_dict["__class__"] = self.__class__.__name__
         for key, value in self.__dict__.items():
-            if isinstance(value, (datetime, )):
+            if isinstance(value, (dt, )):
                 obj_dict[key] = value.isoformat()
             else:
                 obj_dict[key] = value

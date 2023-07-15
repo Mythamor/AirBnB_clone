@@ -134,7 +134,7 @@ class HBNBCommand(cmd.Cmd):
     def do_count(self, line):
         "Display count of instances"
         if line in self.classes:
-           
+
             count = 0
             for key, objs in storage.all().items():
                 if line in key:
@@ -164,11 +164,11 @@ class HBNBCommand(cmd.Cmd):
         elif command[0:5] == "all()":
             self.do_all(_class)
         elif command[0:5] == "show(":
-                _id = command.split("(")[1][0:-1]
-                self.do_show(_class + " " + _id)
+            _id = command.split("(")[1][0:-1]
+            self.do_show(_class + " " + _id)
         elif command[0:8] == "destroy(":
-                _id = command.split("(")[1][0:-1]
-                self.do_destroy(_class + " " + _id[1:-1])
+            _id = command.split("(")[1][0:-1]
+            self.do_destroy(_class + " " + _id[1:-1])
         elif command[0:7] == "update(":
             args = command.split("(")[1][0:-1].split(", ")
             _id = args[0][1:-1]
