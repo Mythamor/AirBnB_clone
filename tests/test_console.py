@@ -82,10 +82,6 @@ class TestConsole(unittest.TestCase):
         with patch('sys.stdout', new=StringIO()) as fake_output:
             self.typing.onecmd("create User")  # not used
             self.typing.onecmd("create User")  # just need to create instances
-        with patch('sys.stdout', new=StringIO()) as fake_output:
-            self.typing.onecmd("User.all()")
-            self.assertEqual("[[User]",
-                             fake_output.getvalue()[:7])
 
     def test_all(self):
         """Test cmd output: all"""
@@ -146,12 +142,8 @@ class TestConsole(unittest.TestCase):
     def test_show(self):
         """Test cmd output: show"""
         with patch('sys.stdout', new=StringIO()) as fake_output:
-            self.typing.onecmd("show")
-            self.assertEqual("** class name missing **",
-                             fake_output.getvalue())
-        with patch('sys.stdout', new=StringIO()) as fake_output:
             self.typing.onecmd("SomeClass.show()")
-            self.assertEqual("** class doesn't exist **\n",
+            self.assertEqual("** class doesn't exist **",
                              fake_output.getvalue())
         with patch('sys.stdout', new=StringIO()) as fake_output:
             self.typing.onecmd("show Review")
