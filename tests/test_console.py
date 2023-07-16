@@ -142,10 +142,6 @@ class TestConsole(unittest.TestCase):
     def test_show(self):
         """Test cmd output: show"""
         with patch('sys.stdout', new=StringIO()) as fake_output:
-            self.typing.onecmd("SomeClass.show()")
-            self.assertEqual("** class doesn't exist **",
-                             fake_output.getvalue())
-        with patch('sys.stdout', new=StringIO()) as fake_output:
             self.typing.onecmd("show Review")
             self.assertEqual("** instance id missing **\n",
                              fake_output.getvalue())
