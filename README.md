@@ -58,4 +58,5 @@ EOF  help  quit
 $
 
 ## Authors
-*  Beth Mithamo
+Project Author:
+[Mithamo Beth](https://github.com/Mythamor#hi-there-)
